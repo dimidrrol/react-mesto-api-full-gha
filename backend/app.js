@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { PORT = 3000 } = process.env;
+const { SERVER_PORT, DB } = require('./utils/config');
 const usersRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const helmet = require('helmet');
@@ -15,7 +15,6 @@ const errorHandler = require('./middlewares/error-handler');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
 
@@ -24,7 +23,7 @@ const limiter = rateLimit({
   max: 100
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect(DB);
 
 app.use(cookieParser());
 app.use(helmet());
@@ -33,6 +32,11 @@ app.use(limiter);
 app.use(requestLogger);
 app.use(cors({ origin: ['http://localhost:3000', 'https://mesto.student.project.nomoredomains.xyz', 'http://mesto.student.project.nomoredomains.xyz'], credentials: true, maxAge: 36 }));
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signup', validateUser, createUser);
 app.post('/signin', validateLogin, login);
 app.delete('/logout', logout);
@@ -48,4 +52,4 @@ app.use((req, res, next) => {
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(PORT);
+app.listen(SERVER_PORT);
