@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const usersRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const helmet = require('helmet');
@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(limiter);
 app.use(requestLogger);
-app.use(cors({ origin: ['http://localhost:3000'], credentials: true, maxAge: 36 }));
+app.use(cors({ origin: ['http://localhost:3000', 'mesto.student.project.nomoredomains.xyz'], credentials: true, maxAge: 36 }));
 
 app.post('/signup', validateUser, createUser);
 app.post('/signin', validateLogin, login);
