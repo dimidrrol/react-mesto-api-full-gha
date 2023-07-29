@@ -35,7 +35,7 @@ function App() {
     navigate('/sign-in', { replace: true });
     closeAllPopups();
   }
-
+ 
   React.useEffect(() => {
     const handleTokenCheck = () => {
       const jwt = localStorage.getItem('userId');
