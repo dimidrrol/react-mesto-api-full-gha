@@ -105,7 +105,7 @@ class Api {
 
 
 export const api = new Api({
-    url: "http://localhost:3001",
+    url: "https://api.mesto.student.project.nomoredomains.xyz",
     headers: {
         'content-type': 'application/json'
     }

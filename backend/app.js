@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(limiter);
 app.use(requestLogger);
-app.use(cors({ origin: ['http://localhost:3000', 'mesto.student.project.nomoredomains.xyz'], credentials: true, maxAge: 36 }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://mesto.student.project.nomoredomains.xyz', 'http://mesto.student.project.nomoredomains.xyz'], credentials: true, maxAge: 36 }));
 
 app.post('/signup', validateUser, createUser);
 app.post('/signin', validateLogin, login);
