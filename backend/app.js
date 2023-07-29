@@ -28,8 +28,8 @@ mongoose.connect(DB);
 app.use(cookieParser());
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(limiter);
 app.use(requestLogger);
+app.use(limiter);
 app.use(cors({ origin: ['http://localhost:3000', 'https://mesto.student.project.nomoredomains.xyz', 'http://mesto.student.project.nomoredomains.xyz'], credentials: true, maxAge: 36 }));
 
 app.get('/crash-test', () => {
