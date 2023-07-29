@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес <158.160.114.165>
+IP 158.160.114.165
 
 Frontend https://mesto.student.project.nomoredomains.xyz
 
