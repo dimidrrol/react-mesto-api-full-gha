@@ -1,6 +1,4 @@
 # Проект react-mesto  
-Ссылка на frontend: https://mesto.student.project.nomoredomains.xyz  
-Ссылка на backend: https://api.mesto.student.project.nomoredomains.xyz  
 Репозиторий для приложения проекта **Mesto**, включающий фронтенд и бэкенд части приложения со следующими возможностями:  
 1. Авторизация
 2. Регистрация
@@ -8,3 +6,19 @@
 4. Возможность изменять информацию в профиле пользователя  
 
 Стэк: React.js, HTML, CSS, Node.js, express, MongoDB.
+
+## Запуск проекта
+**Для frontend**  
+* Dev-сервер:
+```
+npm run dev
+```
+* Продакшн билд:
+```
+npm run build
+```
+**Для backend**  
+* Dev-сервер:
+```
+npm run dev
+```
